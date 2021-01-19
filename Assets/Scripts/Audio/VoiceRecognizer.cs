@@ -24,7 +24,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 
-public class VoiceRecon : MonoBehaviour
+public class VoiceRecognizer : MonoBehaviour
 {
   private KeywordRecognizer keywordRecognizer;
   [SerializeField]

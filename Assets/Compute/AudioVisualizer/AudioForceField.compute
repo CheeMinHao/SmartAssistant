@@ -17,24 +17,32 @@ The Original Code is Copyright (C) 2020 Voxell Technologies.
 All rights reserved.
 */
 
-using UnityEngine;
+StructuredBuffer<float> audioSpectrum;
+RWTexture3D<float3> forceField : register(u0);
 
-namespace Audio
+float _Radius;
+float _Scale;
+uint3 _Resolution;
+
+uint _SpectrumCount;
+
+int3 _MinBound;
+int3 _MaxBound;
+
+#define THREADS [numthreads(8, 8, 8)]
+
+inline uint Linearize(int3 id)
 {
-  [System.Serializable]
-  public class AudioProfile
-  {
-    public int channel;
-    public FFTWindow window;
-    public int sampleSize;
-    public int bufferSize;
-    public float power;
-    public float scale;
-    public float sensitivity;
-    public int smoothingIterations;
-    [Range(5000, 20000)]
-    public int freqRange;
-    [Range(10, 1000)]
-    public int bandSize;
-  }
+  id += _MinBound;
+  uint linearized = id.x + id.y*_Resolution.x + id.z*_Resolution.x*_Resolution.y;
+  return linearized;
+}
+
+#pragma kernel GenerateForceField
+THREADS
+void GenerateForceField(uint3 id : SV_DISPATCHTHREADID)
+{
+  const float3 position = id * _Scale;
+  const uint spectrumID = Linearize(id);
+  float3 globeForce = _Radius - max(length(position), _Radius);
 }

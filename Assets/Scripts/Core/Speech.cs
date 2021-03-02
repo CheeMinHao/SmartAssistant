@@ -19,22 +19,9 @@ All rights reserved.
 
 using UnityEngine;
 
-namespace Audio
+public class Speech : MonoBehaviour
 {
-  [System.Serializable]
-  public class AudioProfile
+  void Start()
   {
-    public int channel;
-    public FFTWindow window;
-    public int sampleSize;
-    public int bufferSize;
-    public float power;
-    public float scale;
-    public float sensitivity;
-    public int smoothingIterations;
-    [Range(5000, 20000)]
-    public int freqRange;
-    [Range(10, 1000)]
-    public int bandSize;
   }
 }

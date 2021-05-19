@@ -227,22 +227,22 @@ VisualEffect:
       - m_Value: 0
         m_Name: NoisePositionAddition
         m_Overridden: 0
-      - m_Value: 0.2
+      - m_Value: 0.1
         m_Name: NoiseIntensity
-        m_Overridden: 0
-      - m_Value: 0.2
+        m_Overridden: 1
+      - m_Value: 0.1
         m_Name: IdleNoiseSpeed
-        m_Overridden: 0
+        m_Overridden: 1
       - m_Value: 10
         m_Name: ForceMultiplier
-        m_Overridden: 0
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array:
       - m_Value: {x: 1, y: 1, z: 1}
         m_Name: NoiseScale
-        m_Overridden: 0
+        m_Overridden: 1
     m_Vector4f:
       m_Array:
       - m_Value: {x: 0, y: 0, z: 0, w: 0}
@@ -254,7 +254,10 @@ VisualEffect:
     m_Uint:
       m_Array: []
     m_Int:
-      m_Array: []
+      m_Array:
+      - m_Value: 480
+        m_Name: TriangleCount
+        m_Overridden: 1
     m_Matrix4x4f:
       m_Array: []
     m_AnimationCurve:
@@ -296,7 +299,10 @@ VisualEffect:
       m_Array:
       - m_Value: {fileID: 289301614986012343, guid: 0b5f8cdaa8d19e0478f0d715a56ec57a, type: 3}
         m_Name: SampleMesh
-        m_Overridden: 0
+        m_Overridden: 1
+      - m_Value: {fileID: 289301614986012343, guid: 0b5f8cdaa8d19e0478f0d715a56ec57a, type: 3}
+        m_Name: OriginMesh
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!4 &275060729
@@ -326,14 +332,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawDefaultInspect: 0
+  idleVelocity: {x: 0.01, y: -0.01}
+  idleNoiseIntensity: 0.1
   rotationMultiplier: 500
-  rotationVelocity: {x: 0, y: 0}
   velocityDamping: 0.9
   intensityCoefficient: 0.1
-  intervalTime: 0.01
-  showAgentInteraction: 0
-  showRotation: 0
-  showMouse: 0
   audioSource: {fileID: 275060732}
   audioProfile:
     channel: 0
@@ -360,7 +363,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7efbb30901bc69144b6425b36149a6dc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ba95494fe9ee9d147bf20ca05277a938, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

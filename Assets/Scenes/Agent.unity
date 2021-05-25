@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 275060728}
   - component: {fileID: 275060732}
   - component: {fileID: 275060730}
+  - component: {fileID: 275060731}
   m_Layer: 0
   m_Name: AudioVisualizer
   m_TagString: Untagged
@@ -233,8 +234,11 @@ VisualEffect:
       - m_Value: 0.1
         m_Name: IdleNoiseSpeed
         m_Overridden: 1
-      - m_Value: 10
+      - m_Value: 50
         m_Name: ForceMultiplier
+        m_Overridden: 1
+      - m_Value: 0.1
+        m_Name: MinDistance
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -332,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawDefaultInspect: 0
-  idleVelocity: {x: 0.01, y: -0.01}
+  idleVelocity: {x: 1, y: -1}
   idleNoiseIntensity: 0.1
   rotationMultiplier: 500
   velocityDamping: 0.9
@@ -342,7 +346,6 @@ MonoBehaviour:
     channel: 0
     window: 4
     sampleSize: 4096
-    bufferSize: 8
     power: 1.5
     scale: 10
     sensitivity: 1
@@ -353,6 +356,18 @@ MonoBehaviour:
   meshFilter: {fileID: 275060733}
   sampleMesh: {fileID: 289301614986012343, guid: 0b5f8cdaa8d19e0478f0d715a56ec57a, type: 3}
   batchSize: 100
+--- !u!114 &275060731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275060726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d24be701aa7678438f85e2454c5d014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &275060732
 AudioSource:
   m_ObjectHideFlags: 0
@@ -363,7 +378,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ba95494fe9ee9d147bf20ca05277a938, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8af40a7b979dc0e4eb3a59f70e8c7ef2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

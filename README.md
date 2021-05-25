@@ -54,4 +54,4 @@ Support us on [Patreon](https://www.patreon.com/smartassistant)!
 
 Smart Assistant as a whole is licensed under the GNU Public License, Version 3. Individual files may have a different, but compatible license.
 
-See [license file](./LICENSE.md) for details.
+See [license file](./LICENSE) for details.

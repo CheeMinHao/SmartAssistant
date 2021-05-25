@@ -8,8 +8,8 @@
       "hash": "371fbd3bab03a3d8464969af4e44e1d41b05c9dd"
     },
     "com.unity.burst": {
-      "version": "1.4.1",
-      "depth": 2,
+      "version": "1.5.3",
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.2.1"
@@ -17,12 +17,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.collections": {
-      "version": "0.15.0-preview.21",
-      "depth": 1,
+      "version": "0.17.0-preview.18",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.test-framework.performance": "2.3.1-preview",
-        "com.unity.burst": "1.4.1"
+        "com.unity.burst": "1.5.3"
       },
       "url": "https://packages.unity.com"
     },
@@ -78,13 +77,6 @@
     "com.unity.mathematics": {
       "version": "1.2.1",
       "depth": 1,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.nuget.newtonsoft-json": {
-      "version": "2.0.0",
-      "depth": 3,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -160,16 +152,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.test-framework.performance": {
-      "version": "2.3.1-preview",
-      "depth": 2,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.test-framework": "1.1.0",
-        "com.unity.nuget.newtonsoft-json": "2.0.0-preview"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.textmeshpro": {
       "version": "3.0.6",
       "depth": 0,
@@ -180,7 +162,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.5.4",
+      "version": "1.5.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -228,7 +210,9 @@
       "version": "file:smartassistant.core",
       "depth": 0,
       "source": "embedded",
-      "dependencies": {}
+      "dependencies": {
+        "com.unity.jobs": ""
+      }
     },
     "smartassistant.voxell.speech": {
       "version": "file:smartassistant.speech",

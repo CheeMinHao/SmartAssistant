@@ -138,7 +138,6 @@ GameObject:
   - component: {fileID: 275060728}
   - component: {fileID: 275060732}
   - component: {fileID: 275060730}
-  - component: {fileID: 275060731}
   m_Layer: 0
   m_Name: AudioVisualizer
   m_TagString: Untagged
@@ -335,7 +334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0faf44a08a76a4e86ff920ebb28e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDefaultInspect: 0
   idleVelocity: {x: 1, y: -1}
   idleNoiseIntensity: 0.1
   rotationMultiplier: 500
@@ -356,18 +354,7 @@ MonoBehaviour:
   meshFilter: {fileID: 275060733}
   sampleMesh: {fileID: 289301614986012343, guid: 0b5f8cdaa8d19e0478f0d715a56ec57a, type: 3}
   batchSize: 100
---- !u!114 &275060731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275060726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d24be701aa7678438f85e2454c5d014, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  totalTris: 0
 --- !u!82 &275060732
 AudioSource:
   m_ObjectHideFlags: 0

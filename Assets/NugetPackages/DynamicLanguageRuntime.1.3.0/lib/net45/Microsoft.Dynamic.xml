@@ -6243,7 +6243,7 @@
             <c>false</c> otherwise.
             </summary>
         </member>
-        <member name="M:Microsoft.Scripting.Utils.MathUtils.FloorDivideUnchecked(System.Int32,System.Int32)">
+        <member name="M:Microsoft.Scripting.Utils.MathUtil.FloorDivideUnchecked(System.Int32,System.Int32)">
             <summary>
             Calculates the quotient of two 32-bit signed integers rounded towards negative infinity.
             </summary>
@@ -6253,7 +6253,7 @@
             <exception cref="T:System.DivideByZeroException"><paramref name="y"/> is 0.</exception>
             <remarks>The caller must check for overflow (x = Int32.MinValue, y = -1)</remarks>
         </member>
-        <member name="M:Microsoft.Scripting.Utils.MathUtils.FloorDivideUnchecked(System.Int64,System.Int64)">
+        <member name="M:Microsoft.Scripting.Utils.MathUtil.FloorDivideUnchecked(System.Int64,System.Int64)">
             <summary>
             Calculates the quotient of two 64-bit signed integers rounded towards negative infinity.
             </summary>
@@ -6263,7 +6263,7 @@
             <exception cref="T:System.DivideByZeroException"><paramref name="y"/> is 0.</exception>
             <remarks>The caller must check for overflow (x = Int64.MinValue, y = -1)</remarks>
         </member>
-        <member name="M:Microsoft.Scripting.Utils.MathUtils.FloorRemainder(System.Int32,System.Int32)">
+        <member name="M:Microsoft.Scripting.Utils.MathUtil.FloorRemainder(System.Int32,System.Int32)">
             <summary>
             Calculates the remainder of floor division of two 32-bit signed integers.
             </summary>
@@ -6272,7 +6272,7 @@
             <returns>The remainder of of floor division of the specified numbers, or <code>x - (int)Floor((double)x/(double)y) * y</code>.</returns>
             <exception cref="T:System.DivideByZeroException"><paramref name="y"/> is 0.</exception>
         </member>
-        <member name="M:Microsoft.Scripting.Utils.MathUtils.FloorRemainder(System.Int64,System.Int64)">
+        <member name="M:Microsoft.Scripting.Utils.MathUtil.FloorRemainder(System.Int64,System.Int64)">
             <summary>
             Calculates the remainder of floor division of two 32-bit signed integers.
             </summary>
@@ -6281,13 +6281,13 @@
             <returns>The remainder of of floor division of the specified numbers, or <code>x - (int)Floor((double)x/(double)y) * y</code>.</returns>
             <exception cref="T:System.DivideByZeroException"><paramref name="y"/> is 0.</exception>
         </member>
-        <member name="M:Microsoft.Scripting.Utils.MathUtils.RoundAwayFromZero(System.Double)">
+        <member name="M:Microsoft.Scripting.Utils.MathUtil.RoundAwayFromZero(System.Double)">
             <summary>
             Behaves like Math.Round(value, MidpointRounding.AwayFromZero)
             Needed because CoreCLR doesn't support this particular overload of Math.Round
             </summary>
         </member>
-        <member name="M:Microsoft.Scripting.Utils.MathUtils.RoundAwayFromZero(System.Double,System.Int32)">
+        <member name="M:Microsoft.Scripting.Utils.MathUtil.RoundAwayFromZero(System.Double,System.Int32)">
             <summary>
             Behaves like Math.Round(value, precision, MidpointRounding.AwayFromZero)
             However, it works correctly on negative precisions and cases where precision is
@@ -6296,40 +6296,40 @@
             (This function is also needed because CoreCLR lacks this overload.)
             </summary>
         </member>
-        <member name="M:Microsoft.Scripting.Utils.MathUtils.EvalPolynomial(System.Double,System.Double[])">
+        <member name="M:Microsoft.Scripting.Utils.MathUtil.EvalPolynomial(System.Double,System.Double[])">
             <summary>
             Evaluates a polynomial in v0 where the coefficients are ordered in increasing degree
             </summary>
         </member>
-        <member name="M:Microsoft.Scripting.Utils.MathUtils.EvalPolynomial(System.Double,System.Double[],System.Boolean)">
+        <member name="M:Microsoft.Scripting.Utils.MathUtil.EvalPolynomial(System.Double,System.Double[],System.Boolean)">
             <summary>
             Evaluates a polynomial in v0 where the coefficients are ordered in increasing degree
             if reverse is false, and increasing degree if reverse is true.
             </summary>
         </member>
-        <member name="M:Microsoft.Scripting.Utils.MathUtils.SinPi(System.Double)">
+        <member name="M:Microsoft.Scripting.Utils.MathUtil.SinPi(System.Double)">
             <summary>
             A numerically precise version of sin(v0 * pi)
             </summary>
         </member>
-        <member name="M:Microsoft.Scripting.Utils.MathUtils.AbsSinPi(System.Double)">
+        <member name="M:Microsoft.Scripting.Utils.MathUtil.AbsSinPi(System.Double)">
             <summary>
             A numerically precise version of |sin(v0 * pi)|
             </summary>
         </member>
-        <member name="M:Microsoft.Scripting.Utils.MathUtils.GammaRationalFunc(System.Double)">
+        <member name="M:Microsoft.Scripting.Utils.MathUtil.GammaRationalFunc(System.Double)">
             <summary>
             Take the quotient of the 2 polynomials forming the Lanczos approximation
             with N=13 and G=13.144565
             </summary>
         </member>
-        <member name="M:Microsoft.Scripting.Utils.MathUtils.PositiveGamma(System.Double)">
+        <member name="M:Microsoft.Scripting.Utils.MathUtil.PositiveGamma(System.Double)">
             <summary>
             Computes the Gamma function on positive values, using the Lanczos approximation.
             Lanczos parameters are N=13 and G=13.144565.
             </summary>
         </member>
-        <member name="M:Microsoft.Scripting.Utils.MathUtils.PositiveLGamma(System.Double)">
+        <member name="M:Microsoft.Scripting.Utils.MathUtil.PositiveLGamma(System.Double)">
             <summary>
             Computes the Log-Gamma function on positive values, using the Lanczos approximation.
             Lanczos parameters are N=13 and G=13.144565.

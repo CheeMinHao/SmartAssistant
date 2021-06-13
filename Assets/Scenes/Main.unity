@@ -167,11 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df4fc963e243544fab21c86e31fd89c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  essentialScene: Essential
-  agentScene: Agent
-  childScenes:
-  - Setting1
-  - Setting2
+  initialScenes:
+  - Essential
+  - Agent
 --- !u!114 &1098601903
 MonoBehaviour:
   m_ObjectHideFlags: 0

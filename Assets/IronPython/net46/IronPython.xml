@@ -5499,7 +5499,7 @@
         </member>
         <member name="M:IronPython.Runtime.PythonContext.HookAssemblyResolve">
             <summary>
-            We use Assembly.LoadFile to load assemblies from a path specified by the script (in LoadAssemblyFromFileWithPath).
+            We use Assembly.LoadStreamingAssetFile to load assemblies from a path specified by the script (in LoadAssemblyFromFileWithPath).
             However, when the CLR loader tries to resolve any of assembly references, it will not be able to
             find the dependencies, unless we can hook into the CLR loader.
             </summary>

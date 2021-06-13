@@ -182,3 +182,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d24be701aa7678438f85e2454c5d014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pythonAsset: {fileID: -3624204093008759019, guid: 0f4d0a22f0dfb07479debea19377cde2, type: 3}

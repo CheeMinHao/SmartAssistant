@@ -5,9 +5,12 @@ using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
 
 using SmartAssistant.Core.Inspector;
+using SmartAssistant;
 
 public class PythonTester : MonoBehaviour
 {
+  public PythonAsset pythonAsset;
+
   // Start is called before the first frame update
   [Button]
   public void TestPython()
@@ -27,7 +30,7 @@ public class PythonTester : MonoBehaviour
     foreach (string path in mainPaths) searchPaths.Add(path);
     pythonEngine.SetSearchPaths(searchPaths);
 
-    ScriptScope scriptScope = pythonEngine.ExecuteFile($"{Application.dataPath}/Runtime/PythonFiles/main.py");
+    ScriptScope scriptScope = pythonEngine.ExecuteFile(pythonAsset.filePath);
   }
 
   // Update is called once per frame

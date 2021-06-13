@@ -8,7 +8,7 @@
       "hash": "371fbd3bab03a3d8464969af4e44e1d41b05c9dd"
     },
     "com.unity.burst": {
-      "version": "1.5.3",
+      "version": "1.5.4",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -42,7 +42,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.7",
+      "version": "2.0.8",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -203,7 +203,7 @@
       "source": "embedded",
       "dependencies": {
         "com.unity.visualeffectgraph": "10.3.2",
-        "smartassistant.voxell.core": "0.1.0"
+        "smartassistant.voxell.core": "1.0.0"
       }
     },
     "smartassistant.voxell.core": {
@@ -219,7 +219,7 @@
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "smartassistant.voxell.core": "0.1.0",
+        "smartassistant.voxell.core": "1.0.0",
         "com.github.asus4.tflite": "2.4.1"
       }
     },
@@ -228,7 +228,7 @@
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "smartassistant.voxell.core": "0.1.0"
+        "smartassistant.voxell.core": "1.0.0"
       }
     },
     "com.unity.modules.ai": {

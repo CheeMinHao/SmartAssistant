@@ -89,6 +89,10 @@ crashlytics-build.properties
 # API keys
 *.apikey
 
-
 # pycaches
 *.pyc
+
+# audio files
+AudioClips/
+*.mp3
+*.audio

@@ -8,7 +8,7 @@ public class PythonTester : MonoBehaviour
   void Start()
   {
     ScriptEngine pythonEngine = Python.CreateEngine();
-    ScriptSource pythonScript = pythonEngine.CreateScriptSourceFromString("print('Hello from Python!')");
+    ScriptSource pythonScript = pythonEngine.CreateScriptSourceFromString("open('./file.txt', 'w').write('hello')");
     pythonScript.Execute();
   }
 

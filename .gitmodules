@@ -16,3 +16,6 @@
 [submodule "Packages/RapidGUI"]
 	path = Packages/RapidGUI
 	url = https://github.com/fuqunaga/RapidGUI
+[submodule "Packages/SmartInspector"]
+	path = Packages/SmartInspector
+	url = https://github.com/voxell-tech/SmartInspector

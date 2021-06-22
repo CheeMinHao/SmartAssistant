@@ -23,8 +23,8 @@ using System.IO;
 using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
 
-using SmartAssistant.Core.Inspector;
-using SmartAssistant;
+using Voxell.Inspector;
+using Voxell.Python;
 
 public class PythonTester : MonoBehaviour
 {

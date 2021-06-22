@@ -84,7 +84,7 @@ class Brain(object):
 
 if __name__ == "__main__":
   modules = []
-  for finder, name, ispkg in pkgutil.walk_packages([r"p:\SmartAssistant\SmartAssistant\SABackend\client\modules"]):
+  for finder, name, ispkg in pkgutil.walk_packages([r"p:\Voxell\Voxell\SABackend\client\modules"]):
     if not ispkg:
       try:
         loader = finder.find_module(name)

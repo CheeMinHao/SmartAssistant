@@ -18,11 +18,11 @@ All rights reserved.
 */
 
 using UnityEngine;
-using SmartAssistant.Core;
-using SmartAssistant.Speech.TTS;
-using SmartAssistant.Speech.STT;
+using Voxell.Core;
+using Voxell.Speech.TTS;
+using Voxell.Speech.STT;
 
-namespace SmartAssistant
+namespace Voxell
 {
   public class SocketHandler : MonoBehaviour
   {

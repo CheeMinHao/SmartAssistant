@@ -209,38 +209,47 @@
       "source": "embedded",
       "dependencies": {}
     },
-    "smartassistant.voxell.audio": {
-      "version": "file:smartassistant.audio",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "com.unity.visualeffectgraph": "10.3.2",
-        "smartassistant.voxell.core": "1.0.0"
-      }
-    },
-    "smartassistant.voxell.core": {
-      "version": "file:smartassistant.core",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "com.unity.jobs": ""
-      }
-    },
-    "smartassistant.voxell.speech": {
-      "version": "file:smartassistant.speech",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "smartassistant.voxell.core": "1.0.0",
-        "com.github.asus4.tflite": "2.4.1"
-      }
-    },
     "smartassistant.voxell.ux": {
       "version": "file:smartassistant.ux",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "smartassistant.voxell.core": "1.0.0"
+        "voxell.util": "1.0.0"
+      }
+    },
+    "voxell.audio": {
+      "version": "file:UnityAudioVisualizer",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "voxell.util": "1.0.0",
+        "com.unity.visualeffectgraph": "10.3.2"
+      }
+    },
+    "voxell.ironpython": {
+      "version": "file:UnityIronPython",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "voxell.util": "1.0.0",
+        "com.unity.visualeffectgraph": "10.3.2"
+      }
+    },
+    "voxell.speech": {
+      "version": "file:UnitySpeechEngine",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "voxell.util": "1.0.0",
+        "com.github.asus4.tflite": "2.4.1"
+      }
+    },
+    "voxell.util": {
+      "version": "file:UnityUtil",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.jobs": ""
       }
     },
     "com.unity.modules.ai": {

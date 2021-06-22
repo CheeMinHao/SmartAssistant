@@ -19,3 +19,6 @@
 [submodule "Packages/SmartHierarchy"]
 	path = Packages/SmartHierarchy
 	url = https://github.com/voxell-tech/SmartHierarchy.git
+[submodule "Packages/UnityIronPython"]
+	path = Packages/UnityIronPython
+	url = https://github.com/voxell-tech/UnityIronPython.git

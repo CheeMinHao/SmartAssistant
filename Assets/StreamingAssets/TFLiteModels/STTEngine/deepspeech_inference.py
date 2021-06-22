@@ -19,7 +19,7 @@ import tensorflow as tf
 import soundfile
 
 tflitemodel = tf.lite.Interpreter(model_path="./deepspeech-0.9.3-models.tflite")
-wav_path = "E:/VoxellDevelopment/UnityProjs/SmartAssistant/Packages/smartassistant.speech/Samples/SpeechExample/AudioClips/1089-134691-0000.wav"
+wav_path = "E:/VoxellDevelopment/UnityProjs/Voxell/Packages/smartassistant.speech/Samples/SpeechExample/AudioClips/1089-134691-0000.wav"
 test_wav = soundfile.read(wav_path)
 test_wav = test_wav[0]
 

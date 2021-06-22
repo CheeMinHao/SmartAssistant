@@ -19,7 +19,7 @@ All rights reserved.
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using SmartAssistant.Core.Inspector;
+using Voxell.Inspector;
 
 public class GameManager : MonoBehaviour
 {

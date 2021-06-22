@@ -1,21 +1,21 @@
-[submodule "Packages/smartassistant.core"]
-	path = Packages/smartassistant.core
-	url = https://github.com/voxell-tech/smartassistant.core.git
-[submodule "Packages/smartassistant.audio"]
-	path = Packages/smartassistant.audio
-	url = https://github.com/voxell-tech/smartassistant.audio.git
-[submodule "Packages/smartassistant.speech"]
-	path = Packages/smartassistant.speech
-	url = https://github.com/voxell-tech/smartassistant.speech.git
+[submodule "Packages/UnityUtil"]
+	path = Packages/UnityUtil
+	url = https://github.com/voxell-tech/UnityUtil
 [submodule "Packages/smartassistant.ux"]
 	path = Packages/smartassistant.ux
 	url = https://github.com/voxell-tech/smartassistant.ux.git
-[submodule "SmartAssistantAPI"]
-	path = SmartAssistantAPI
-	url = https://github.com/voxell-tech/SmartAssistantAPI.git
+[submodule "Packages/UnitySpeechEngine"]
+	path = Packages/UnitySpeechEngine
+	url = https://github.com/voxell-tech/UnitySpeechEngine.git
+[submodule "Packages/UnityAudioVisualizer"]
+	path = Packages/UnityAudioVisualizer
+	url = https://github.com/voxell-tech/UnityAudioVisualizer.git
 [submodule "Packages/RapidGUI"]
 	path = Packages/RapidGUI
 	url = https://github.com/fuqunaga/RapidGUI
 [submodule "Packages/SmartInspector"]
 	path = Packages/SmartInspector
 	url = https://github.com/voxell-tech/SmartInspector
+[submodule "Packages/SmartHierarchy"]
+	path = Packages/SmartHierarchy
+	url = https://github.com/voxell-tech/SmartHierarchy.git

@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.av.smart-hierarchy": {
+      "version": "file:SmartHierarchy",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.av.smart-inspector": {
       "version": "file:SmartInspector",
       "depth": 0,

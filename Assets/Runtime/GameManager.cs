@@ -21,50 +21,53 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Voxell.Inspector;
 
-public class GameManager : MonoBehaviour
+namespace SmartAssistant.Core
 {
-  [Scene]
-  public string[] initialScenes;
-
-  private bool[] _sceneLoaded;
-
-  void Awake()
+  public class GameManager : MonoBehaviour
   {
-    // QualitySettings.vSyncCount = 1;
-    // Application.targetFrameRate = 60;
-  }
+    [Scene]
+    public string[] initialScenes;
 
-  [Button]
-  void Start()
-  {
-    _sceneLoaded = new bool[initialScenes.Length];
-    CheckLoadedScenes();
-    LoadScenes();
-  }
+    private bool[] _sceneLoaded;
 
-  void Update() {}
-
-  private void CheckLoadedScenes()
-  {
-    if (SceneManager.sceneCount > 0)
+    void Awake()
     {
-      for (int i=0; i < SceneManager.sceneCount; i++)
+      // QualitySettings.vSyncCount = 1;
+      // Application.targetFrameRate = 60;
+    }
+
+    [Button]
+    void Start()
+    {
+      _sceneLoaded = new bool[initialScenes.Length];
+      CheckLoadedScenes();
+      LoadScenes();
+    }
+
+    void Update() {}
+
+    private void CheckLoadedScenes()
+    {
+      if (SceneManager.sceneCount > 0)
       {
-        Scene scene = SceneManager.GetSceneAt(i);
-        for (int s=0; s < initialScenes.Length; s++)
-          if (scene.name == initialScenes[s]) _sceneLoaded[s] = true;
+        for (int i=0; i < SceneManager.sceneCount; i++)
+        {
+          Scene scene = SceneManager.GetSceneAt(i);
+          for (int s=0; s < initialScenes.Length; s++)
+            if (scene.name == initialScenes[s]) _sceneLoaded[s] = true;
+        }
       }
     }
-  }
 
-  private void LoadScenes()
-  {
-    for (int s=0; s < initialScenes.Length; s++)
+    private void LoadScenes()
     {
-      if (!_sceneLoaded[s])
+      for (int s=0; s < initialScenes.Length; s++)
       {
-        SceneManager.LoadSceneAsync(initialScenes[s], LoadSceneMode.Additive);
-        _sceneLoaded[s] = true;
+        if (!_sceneLoaded[s])
+        {
+          SceneManager.LoadSceneAsync(initialScenes[s], LoadSceneMode.Additive);
+          _sceneLoaded[s] = true;
+        }
       }
     }
   }

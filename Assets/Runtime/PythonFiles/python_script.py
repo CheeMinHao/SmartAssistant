@@ -16,5 +16,7 @@
 # All rights reserved.
 
 import UnityEngine as u # type: ignore
+import time
 
 u.Debug.Log("This is just a test.")
+u.Debug.Log(time.time())

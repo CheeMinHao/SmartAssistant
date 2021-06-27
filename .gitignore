@@ -2,8 +2,8 @@
 __pycache__/
 checkpoints/
 inference/
-/LegacyPythonAPI/env/
-/LegacyPythonAPI/core/temp/
+env/
+temp/
 
 # This .gitignore file should be placed at the root of your Unity project directory
 #
@@ -83,8 +83,13 @@ crashlytics-build.properties
 
 # Tensorflow trained checkpoints and weights
 *.h5
+*.h5.meta
 *.pbmm
 *.pbmm.meta
+*.tflite
+*.tflite.meta
+Models/
+Models.meta
 
 # API keys
 *.apikey

@@ -246,7 +246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7443a458f1d7be4988aeacc27333c48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelpath: 
+  pbmmModel: {fileID: -938282707502500128, guid: f1d61b197e378514dbc86217df7cff8b, type: 3}
+  clip: {fileID: 8300000, guid: 2b0cdf414d03f934dadb7363c53e506c, type: 3}
 --- !u!4 &1289838861
 Transform:
   m_ObjectHideFlags: 0

@@ -35,14 +35,14 @@ public class DeepSpeechTest : MonoBehaviour
     DeepSpeech sttClient = new DeepSpeech(modelPath);
     float[] floatData = new float[clip.samples];
     clip.GetData(floatData, 0);
-    short[] shortData = ConvertAudioClipDataToInt16ByteArray(floatData);
+    short[] shortData = AudioFloatToInt16(floatData);
 
     string speechResult =  sttClient.SpeechToText(shortData, (uint)clip.samples);
     Debug.Log(speechResult);
     sttClient.Dispose();
   }
 
-  private static short[] ConvertAudioClipDataToInt16ByteArray (float[] data)
+  private static short[] AudioFloatToInt16(float[] data)
   {
     Int16 maxValue = Int16.MaxValue;
     short[] shorts = new short[data.Length];

@@ -18,6 +18,7 @@ All rights reserved.
 */
 
 using UnityEngine;
+using Voxell;
 using Voxell.Inspector;
 using Voxell.PythonVX;
 
@@ -32,7 +33,7 @@ namespace SmartAssistant.Scripting
     private void InitPython()
     {
       pythonLoader.Init();
-      pythonLoader.Setup(Application.dataPath + "/Runtime/PythonFiles");
+      pythonLoader.Setup(FileUtil.projectPath + FileUtil.GetFolderPath(pythonAsset.filePath));
     }
 
     [Button]

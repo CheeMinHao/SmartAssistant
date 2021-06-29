@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pythonLoader:
     libPath: E:/VoxellDevelopment/UnityProjs/SmartAssistant/Packages/UnityIronPython/Runtime/IronPython/Lib/
-    execPath: E:/VoxellDevelopment/UnityProjs/SmartAssistant/Assets/Runtime/PythonFiles
+    execPath: E:/VoxellDevelopment/UnityProjs/SmartAssistant/Assets/Runtime/PythonFiles/
     libDirectories:
     - E:/VoxellDevelopment/UnityProjs/SmartAssistant/Packages/UnityIronPython/Runtime/IronPython/Lib/asyncio
     - E:/VoxellDevelopment/UnityProjs/SmartAssistant/Packages/UnityIronPython/Runtime/IronPython/Lib/collections

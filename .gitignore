@@ -88,8 +88,6 @@ crashlytics-build.properties
 *.pbmm.meta
 *.tflite
 *.tflite.meta
-Models/
-Models.meta
 
 # API keys
 *.apikey

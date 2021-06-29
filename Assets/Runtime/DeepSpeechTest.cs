@@ -21,6 +21,7 @@ using UnityEngine;
 using System;
 using DeepSpeechClient;
 using Voxell;
+using Voxell.DeepLearning;
 using Voxell.Inspector;
 
 public class DeepSpeechTest : MonoBehaviour

@@ -1,3 +1,12 @@
+---
+name: New Feature
+about: Creating a new feature for this project.
+title: ''
+labels: ''
+assignees: ''
+
+---
+
 **Summary**
 
 A quick intro or summary on the feature you want to create.

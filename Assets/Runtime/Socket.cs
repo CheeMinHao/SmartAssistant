@@ -35,7 +35,7 @@ namespace Voxell.Core
     public string ipAddress = "localhost";
     public int port = 8052;
     public readonly int headerSize = 10;
-    public Logging logger;
+    public Logger logger;
     #endregion
 
     #region TCP Connections
@@ -79,7 +79,7 @@ namespace Voxell.Core
         // Create listener on localhost port 8052. 
         tcpListener = new TcpListener(IPAddress.Parse(ipAddress), 8052);
         tcpListener.Start();
-        logger.ConditionalLog("Server is listening", LogImportance.Important, LogStyle.Log);
+        logger.ConditionalLog("Server is listening", LogImportance.Important, LogType.Log);
         Byte[] bytes = new Byte[1024];
         while (true)
         {
@@ -98,7 +98,7 @@ namespace Voxell.Core
                 SocketMessage socketMessage = JsonConvert.DeserializeObject<SocketMessage>(clientSocketMessage);
                 logger.ConditionalLog(
                   $"taskID received from client\nTask: {socketMessage.taskID}, Argument: {socketMessage.argument}",
-                  LogImportance.Info, LogStyle.Log
+                  LogImportance.Info, LogType.Log
                 );
 
                 string methodOutput;
@@ -117,7 +117,7 @@ namespace Voxell.Core
       {
         logger.ConditionalLog(
           "SocketException " + socketException.ToString(),
-          LogImportance.Crucial, LogStyle.Warning
+          LogImportance.Crucial, LogType.Warning
         );
       }
     }
@@ -143,14 +143,14 @@ namespace Voxell.Core
           stream.Write(serverSocketMessageAsByteArray, 0, serverSocketMessageAsByteArray.Length);
           logger.ConditionalLog(
             "Server sent his SocketMessage - should be received by client",
-            LogImportance.Info, LogStyle.Log);
+            LogImportance.Info, LogType.Log);
         }
       }
       catch (SocketException socketException)
       {
         logger.ConditionalLog(
           "SocketException " + socketException.ToString(),
-          LogImportance.Crucial, LogStyle.Warning
+          LogImportance.Crucial, LogType.Warning
         );
       }
     }
@@ -169,7 +169,7 @@ namespace Voxell.Core
       {
         logger.ConditionalLog(
           $"taskType recieved from client: {socketMessage.taskType} exceeds the number of taskID types: {maxTaskType}",
-          LogImportance.Critical, LogStyle.Error);
+          LogImportance.Critical, LogType.Error);
         return;
       }
 
@@ -177,7 +177,7 @@ namespace Voxell.Core
       {
         logger.ConditionalLog(
           $"argument recieved from client is null but is required for taskType: {socketMessage.taskType}",
-          LogImportance.Critical, LogStyle.Error);
+          LogImportance.Critical, LogType.Error);
         return;
       }
 
@@ -213,7 +213,7 @@ namespace Voxell.Core
       {
         logger.ConditionalLog(
         $"taskID recieved from client: {taskID} exceeds the number of tasks: {maxTasks}",
-        LogImportance.Critical, LogStyle.Error);
+        LogImportance.Critical, LogType.Error);
         return false;
       }
       return true;

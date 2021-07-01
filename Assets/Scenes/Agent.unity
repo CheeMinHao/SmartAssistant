@@ -298,10 +298,10 @@ VisualEffect:
         m_Overridden: 0
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 289301614986012343, guid: 0b5f8cdaa8d19e0478f0d715a56ec57a, type: 3}
+      - m_Value: {fileID: 289301614986012343, guid: 8eac8a7a1ac0ba3428ddb098e5ab5c4d, type: 3}
         m_Name: SampleMesh
         m_Overridden: 1
-      - m_Value: {fileID: 289301614986012343, guid: 0b5f8cdaa8d19e0478f0d715a56ec57a, type: 3}
+      - m_Value: {fileID: 289301614986012343, guid: 8eac8a7a1ac0ba3428ddb098e5ab5c4d, type: 3}
         m_Name: OriginMesh
         m_Overridden: 1
     m_Bool:
@@ -352,7 +352,7 @@ MonoBehaviour:
     bandSize: 1280
   audioVFX: {fileID: 275060728}
   meshFilter: {fileID: 473425281}
-  sampleMesh: {fileID: 289301614986012343, guid: 0b5f8cdaa8d19e0478f0d715a56ec57a, type: 3}
+  sampleMesh: {fileID: 289301614986012343, guid: 8eac8a7a1ac0ba3428ddb098e5ab5c4d, type: 3}
   velocityMultiplier: 0.95
   batchSize: 100
   totalTriangles: 1280
@@ -533,7 +533,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473425278}
-  m_Mesh: {fileID: 289301614986012343, guid: 0b5f8cdaa8d19e0478f0d715a56ec57a, type: 3}
+  m_Mesh: {fileID: 289301614986012343, guid: 8eac8a7a1ac0ba3428ddb098e5ab5c4d, type: 3}
 --- !u!1 &1415744962
 GameObject:
   m_ObjectHideFlags: 0

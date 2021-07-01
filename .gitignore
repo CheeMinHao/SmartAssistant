@@ -70,6 +70,7 @@ sysinfo.txt
 *.apk
 *.aab
 *.unitypackage
+*.unitypackage.meta
 *.exe
 
 # Crashlytics generated file
@@ -102,7 +103,10 @@ AudioClips/
 *.wav
 *.audio
 
+# license
+LICENSE.meta
+
 # large libraries
-runtimes/
+native/
 tensorflow.dll
 tensorflow.dll.meta

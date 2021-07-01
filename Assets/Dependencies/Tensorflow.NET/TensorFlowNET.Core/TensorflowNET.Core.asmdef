@@ -1,0 +1,17 @@
+{
+    "name": "TensorflowNET.Core",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b23efe0d0bd83184681bd63517e3c327",
+        "GUID:2e5621c5a1c6b0347b7954655f058bd1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

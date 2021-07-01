@@ -1,0 +1,16 @@
+{
+    "name": "TensorflowNET.Text",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8f047b776700e214b886800866eeac78"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

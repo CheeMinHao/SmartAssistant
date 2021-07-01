@@ -38,6 +38,14 @@
             <summary>
             Arguments for error events
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="F:Microsoft.Build.Framework.BuildErrorEventArgs.subcategory">
             <summary>
@@ -77,11 +85,6 @@
         <member name="F:Microsoft.Build.Framework.BuildErrorEventArgs.endColumnNumber">
             <summary>
             End column number
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.Framework.BuildErrorEventArgs.helpLink">
-            <summary>
-            A link pointing to more information about the error
             </summary>
         </member>
         <member name="M:Microsoft.Build.Framework.BuildErrorEventArgs.#ctor(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)">
@@ -132,24 +135,6 @@
             <param name="eventTimestamp">Timestamp when event was created</param>
             <param name="messageArgs">message arguments</param>
         </member>
-        <member name="M:Microsoft.Build.Framework.BuildErrorEventArgs.#ctor(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.DateTime,System.Object[])">
-            <summary>
-            This constructor which allows a timestamp to be set
-            </summary>
-            <param name="subcategory">event sub-category</param>
-            <param name="code">event code</param>
-            <param name="file">file associated with the event</param>
-            <param name="lineNumber">line number (0 if not applicable)</param>
-            <param name="columnNumber">column number (0 if not applicable)</param>
-            <param name="endLineNumber">end line number (0 if not applicable)</param>
-            <param name="endColumnNumber">end column number (0 if not applicable)</param>
-            <param name="message">text message</param>
-            <param name="helpKeyword">help keyword </param>
-            <param name="helpLink">A link pointing to more information about the error </param>
-            <param name="senderName">name of event sender</param>
-            <param name="eventTimestamp">Timestamp when event was created</param>
-            <param name="messageArgs">message arguments</param>
-        </member>
         <member name="M:Microsoft.Build.Framework.BuildErrorEventArgs.#ctor">
             <summary>
             Default constructor
@@ -157,18 +142,18 @@
         </member>
         <member name="P:Microsoft.Build.Framework.BuildErrorEventArgs.Subcategory">
             <summary>
-            The custom sub-type of the event.
+            The custom sub-type of the event.         
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.BuildErrorEventArgs.Code">
             <summary>
-            Code associated with event.
+            Code associated with event. 
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.BuildErrorEventArgs.File">
             <summary>
-            File associated with event.
-            </summary>
+            File associated with event.   
+            </summary>  
         </member>
         <member name="P:Microsoft.Build.Framework.BuildErrorEventArgs.ProjectFile">
             <summary>
@@ -177,27 +162,22 @@
         </member>
         <member name="P:Microsoft.Build.Framework.BuildErrorEventArgs.LineNumber">
             <summary>
-            Line number of interest in associated file.
+            Line number of interest in associated file. 
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.BuildErrorEventArgs.ColumnNumber">
             <summary>
-            Column number of interest in associated file.
+            Column number of interest in associated file. 
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.BuildErrorEventArgs.EndLineNumber">
             <summary>
-            Ending line number of interest in associated file.
+            Ending line number of interest in associated file. 
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.BuildErrorEventArgs.EndColumnNumber">
             <summary>
-            Ending column number of interest in associated file.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Framework.BuildErrorEventArgs.HelpLink">
-            <summary>
-            A link pointing to more information about the error.
+            Ending column number of interest in associated file. 
             </summary>
         </member>
         <member name="M:Microsoft.Build.Framework.BuildErrorEventArgs.WriteToStream(System.IO.BinaryWriter)">
@@ -218,6 +198,14 @@
             This class encapsulates the default data associated with build events. 
             It is intended to be extended/sub-classed.
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="F:Microsoft.Build.Framework.BuildEventArgs.message">
             <summary>
@@ -276,13 +264,6 @@
             The time when event was raised.
             </summary>
         </member>
-        <member name="P:Microsoft.Build.Framework.BuildEventArgs.RawTimestamp">
-            <summary>
-            Exposes the private <see cref="F:Microsoft.Build.Framework.BuildEventArgs.timestamp"/> field to derived types.
-            Used for serialization. Avoids the side effects of calling the
-            <see cref="P:Microsoft.Build.Framework.BuildEventArgs.Timestamp"/> getter.
-            </summary>
-        </member>
         <member name="P:Microsoft.Build.Framework.BuildEventArgs.ThreadId">
             <summary>
             The thread that raised event.  
@@ -290,13 +271,7 @@
         </member>
         <member name="P:Microsoft.Build.Framework.BuildEventArgs.Message">
             <summary>
-            Text of event.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Framework.BuildEventArgs.RawMessage">
-            <summary>
-            Exposes the underlying message field without side-effects.
-            Used for serialization.
+            Text of event. 
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.BuildEventArgs.HelpKeyword">
@@ -338,22 +313,6 @@
             <summary>
             Run after the object has been deserialized
             </summary>
-        </member>
-        <member name="F:Microsoft.Build.Framework.BuildEventArgs.ResourceStringFormatter">
-            <summary>
-            This is the default stub implementation, only here as a safeguard.
-            Actual logic is injected from Microsoft.Build.dll to replace this.
-            This is used by the Message property overrides to reconstruct the
-            message lazily on demand.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.BuildEventArgs.FormatResourceStringIgnoreCodeAndKeyword(System.String,System.String[])">
-            <summary>
-            Shortcut method to mimic the original logic of creating the formatted strings.
-            </summary>
-            <param name="resourceName">Name of the resource string.</param>
-            <param name="arguments">Optional list of arguments to pass to the formatted string.</param>
-            <returns>The concatenated formatted string.</returns>
         </member>
         <member name="T:Microsoft.Build.Framework.BuildEventContext">
             <summary>
@@ -542,6 +501,14 @@
             <summary>
             This class represents the event arguments for build finished events.
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="F:Microsoft.Build.Framework.BuildFinishedEventArgs.succeeded">
             <summary>
@@ -623,6 +590,14 @@
             <summary>
             Arguments for message events
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="M:Microsoft.Build.Framework.BuildMessageEventArgs.#ctor">
             <summary>
@@ -772,6 +747,14 @@
             <summary>
             Arguments for build started events.
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="M:Microsoft.Build.Framework.BuildStartedEventArgs.#ctor">
             <summary>
@@ -867,10 +850,18 @@
             <summary>
             Arguments for warning events
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="M:Microsoft.Build.Framework.BuildWarningEventArgs.#ctor">
             <summary>
-            Default constructor
+            Default constructor 
             </summary>
         </member>
         <member name="M:Microsoft.Build.Framework.BuildWarningEventArgs.#ctor(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)">
@@ -921,24 +912,6 @@
             <param name="eventTimestamp">custom timestamp for the event</param>
             <param name="messageArgs">message arguments</param>
         </member>
-        <member name="M:Microsoft.Build.Framework.BuildWarningEventArgs.#ctor(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.DateTime,System.Object[])">
-            <summary>
-            This constructor allows timestamp to be set
-            </summary>
-            <param name="subcategory">event subcategory</param>
-            <param name="code">event code</param>
-            <param name="file">file associated with the event</param>
-            <param name="lineNumber">line number (0 if not applicable)</param>
-            <param name="columnNumber">column number (0 if not applicable)</param>
-            <param name="endLineNumber">end line number (0 if not applicable)</param>
-            <param name="endColumnNumber">end column number (0 if not applicable)</param>
-            <param name="message">text message</param>
-            <param name="helpKeyword">help keyword </param>
-            <param name="helpLink">A link pointing to more  information about the warning</param>
-            <param name="senderName">name of event sender</param>
-            <param name="eventTimestamp">custom timestamp for the event</param>
-            <param name="messageArgs">message arguments</param>
-        </member>
         <member name="M:Microsoft.Build.Framework.BuildWarningEventArgs.WriteToStream(System.IO.BinaryWriter)">
             <summary>
             Serializes the Errorevent to a stream through a binary writer
@@ -954,37 +927,37 @@
         </member>
         <member name="P:Microsoft.Build.Framework.BuildWarningEventArgs.Subcategory">
             <summary>
-            The custom sub-type of the event.
+            The custom sub-type of the event.         
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.BuildWarningEventArgs.Code">
             <summary>
-            Code associated with event.
+            Code associated with event. 
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.BuildWarningEventArgs.File">
             <summary>
-            File associated with event.
+            File associated with event.   
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.BuildWarningEventArgs.LineNumber">
             <summary>
-            Line number of interest in associated file.
+            Line number of interest in associated file. 
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.BuildWarningEventArgs.ColumnNumber">
             <summary>
-            Column number of interest in associated file.
+            Column number of interest in associated file. 
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.BuildWarningEventArgs.EndLineNumber">
             <summary>
-            Ending line number of interest in associated file.
+            Ending line number of interest in associated file. 
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.BuildWarningEventArgs.EndColumnNumber">
             <summary>
-            Ending column number of interest in associated file.
+            Ending column number of interest in associated file. 
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.BuildWarningEventArgs.ProjectFile">
@@ -992,15 +965,18 @@
             The project which was building when the message was issued.
             </summary>
         </member>
-        <member name="P:Microsoft.Build.Framework.BuildWarningEventArgs.HelpLink">
-            <summary>
-            A link pointing to more information about the warning.
-            </summary>
-        </member>
         <member name="T:Microsoft.Build.Framework.CriticalBuildMessageEventArgs">
             <summary>
             Arguments for critical message events. These always have High importance.
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="M:Microsoft.Build.Framework.CriticalBuildMessageEventArgs.#ctor(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)">
             <summary>
@@ -1059,6 +1035,14 @@
             <summary>
             Arguments for custom build events.
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="M:Microsoft.Build.Framework.CustomBuildEventArgs.#ctor">
             <summary>
@@ -1092,35 +1076,18 @@
             <param name="eventTimestamp">Timestamp when event was created</param>
             <param name="messageArgs">Message arguments</param>
         </member>
-        <member name="T:Microsoft.Build.Framework.EnvironmentVariableReadEventArgs">
-            <summary>
-            Arguments for the environment variable read event.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.EnvironmentVariableReadEventArgs.#ctor">
-            <summary>
-            Initializes an instance of the EnvironmentVariableReadEventArgs class.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.EnvironmentVariableReadEventArgs.#ctor(System.String,System.String,System.String,System.String,Microsoft.Build.Framework.MessageImportance)">
-            <summary>
-            Initializes an instance of the EnvironmentVariableReadEventArgs class.
-            </summary>
-            <param name="environmentVariableName">The name of the environment variable that was read.</param>
-            <param name="message">The value of the environment variable that was read.</param>
-            <param name="helpKeyword">Help keyword.</param>
-            <param name="senderName">The name of the sender of the event.</param>
-            <param name="importance">The importance of the message.</param>
-        </member>
-        <member name="P:Microsoft.Build.Framework.EnvironmentVariableReadEventArgs.EnvironmentVariableName">
-            <summary>
-            The name of the environment variable that was read.
-            </summary>
-        </member>
         <member name="T:Microsoft.Build.Framework.ExternalProjectFinishedEventArgs">
             <summary>
             Arguments for external project finished events
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="M:Microsoft.Build.Framework.ExternalProjectFinishedEventArgs.#ctor">
             <summary>
@@ -1162,6 +1129,14 @@
             <summary>
             Arguments for external project started events
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="M:Microsoft.Build.Framework.ExternalProjectStartedEventArgs.#ctor">
             <summary>
@@ -1461,56 +1436,6 @@
             <param name="eventName">The event name.</param>
             <param name="properties">The event properties.</param>
         </member>
-        <member name="T:Microsoft.Build.Framework.IBuildEngine6">
-            <summary>
-            This interface extends <see cref="T:Microsoft.Build.Framework.IBuildEngine5" /> to allow tasks to get the current project's global properties.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.IBuildEngine6.GetGlobalProperties">
-            <summary>
-            Gets the global properties for the current project.
-            </summary>
-            <returns>An <see cref="T:System.Collections.Generic.IReadOnlyDictionary`2" /> containing the global properties of the current project.</returns>
-        </member>
-        <member name="T:Microsoft.Build.Framework.IBuildEngine7">
-            <summary>
-            This interface extends <see cref="T:Microsoft.Build.Framework.IBuildEngine6" /> to allow tasks to set whether they want to
-            log an error when a task returns without logging an error.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Build.Framework.IBuildEngine8">
-            <summary>
-            This interface extends <see cref="T:Microsoft.Build.Framework.IBuildEngine7" /> to let tasks know if a warning
-            they are about to log will be converted into an error.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.IBuildEngine8.ShouldTreatWarningAsError(System.String)">
-            <summary>
-            Determines whether the logging service will convert the specified
-            warning code into an error.
-            </summary>
-            <param name="warningCode">The warning code to check.</param>
-            <returns>A boolean to determine whether the warning should be treated as an error.</returns>
-        </member>
-        <member name="T:Microsoft.Build.Framework.IBuildEngine9">
-            <summary>
-            This interface extends <see cref="T:Microsoft.Build.Framework.IBuildEngine8" /> to provide resource management API to tasks.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.IBuildEngine9.RequestCores(System.Int32)">
-            <summary>
-            If a task launches multiple parallel processes, it should ask how many cores it can use.
-            </summary>
-            <param name="requestedCores">The number of cores a task can potentially use.</param>
-            <returns>The number of cores a task is allowed to use.</returns>
-        </member>
-        <member name="M:Microsoft.Build.Framework.IBuildEngine9.ReleaseCores(System.Int32)">
-            <summary>
-            A task should notify the build manager when all or some of the requested cores are not used anymore.
-            When task is finished, the cores it requested are automatically released.
-            </summary>
-            <param name="coresToRelease">Number of cores no longer in use.</param>
-        </member>
         <member name="T:Microsoft.Build.Framework.ICancelableTask">
             <summary>
             Interface for tasks which can be cancelled.
@@ -1721,19 +1646,6 @@
             Should task events include task inputs?
             </summary>
         </member>
-        <member name="T:Microsoft.Build.Framework.IEventSource4">
-            <summary>
-            This interface defines the events raised by the build engine.
-            Loggers use this interface to subscribe to the events they
-            are interested in receiving.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.IEventSource4.IncludeEvaluationPropertiesAndItems">
-            <summary>
-            Determines whether properties and items should be logged on <see cref="T:Microsoft.Build.Framework.ProjectEvaluationFinishedEventArgs"/>
-            instead of <see cref="T:Microsoft.Build.Framework.ProjectStartedEventArgs"/>.
-            </summary>
-        </member>
         <member name="T:Microsoft.Build.Framework.IForwardingLogger">
             <summary>
             This interface extends the ILogger interface to provide a property which can be used to forward events
@@ -1794,6 +1706,10 @@
             3) Normal -- display all errors, warnings, high importance events, some status events, and a build summary
             4) Detailed -- display all errors, warnings, high and normal importance events, all status events, and a build summary
             5) Diagnostic -- display all events, and a build summary
+            
+            WARNING: VS Automation code for the Tools/Options MSBuild build verbosity setting will be broken
+            by changes to this enum (not to mention existing MSBuild clients and vsproject code). 
+            Please make sure to talk to automation devs before changing it.
             </remarks>
         </member>
         <member name="F:Microsoft.Build.Framework.LoggerVerbosity.Quiet">
@@ -1852,20 +1768,6 @@
             <summary>
             Called by the build engine to allow loggers to release any resources they may have allocated at initialization time,
             or during the build.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Build.Framework.IMetadataContainer">
-            <summary>
-            Provides a way to efficiently enumerate item metadata
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.IMetadataContainer.EnumerateMetadata">
-            <summary>
-            Returns a list of metadata names and unescaped values, including
-            metadata from item definition groups, but not including built-in
-            metadata. Implementations should be low-overhead as the method
-            is used for serialization (in node packet translator) as well as
-            in the binary logger.
             </summary>
         </member>
         <member name="T:Microsoft.Build.Framework.INodeLogger">
@@ -2157,15 +2059,6 @@
             </summary>
             <returns>The cloned metadata, with values' escaping preserved.</returns>
         </member>
-        <member name="M:Microsoft.Build.Framework.ITaskItemExtensions.EnumerateMetadata(Microsoft.Build.Framework.ITaskItem)">
-            <summary>
-            Provides a way to efficiently enumerate custom metadata of an item, without built-in metadata.
-            </summary>
-            <param name="taskItem">TaskItem implementation to return metadata from</param>
-            <remarks>WARNING: do NOT use List`1.AddRange to iterate over this collection.
-            CopyOnWriteDictionary from Microsoft.Build.Utilities.v4.0.dll is broken.</remarks>
-            <returns>A non-null (but possibly empty) enumerable of item metadata.</returns>
-        </member>
         <member name="T:Microsoft.Build.Framework.LazyFormattedBuildEventArgs">
             <summary>
             Stores strings for parts of a message delaying the formatting until it needs to be shown
@@ -2174,11 +2067,6 @@
         <member name="F:Microsoft.Build.Framework.LazyFormattedBuildEventArgs.arguments">
             <summary>
             Stores the message arguments.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Framework.LazyFormattedBuildEventArgs.RawArguments">
-            <summary>
-            Exposes the underlying arguments field to serializers.
             </summary>
         </member>
         <member name="F:Microsoft.Build.Framework.LazyFormattedBuildEventArgs.originalCultureName">
@@ -2274,6 +2162,11 @@
             Allows a logger to force the build to stop in an explicit way, when, for example, it 
             receives invalid parameters, or cannot write to disk.
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both forward and backward compatibility
+            </remarks>
         </member>
         <member name="M:Microsoft.Build.Framework.LoggerException.#ctor">
             <summary>
@@ -2598,21 +2491,6 @@
             Gets or sets the full path of the project that started evaluation.
             </summary>
         </member>
-        <member name="P:Microsoft.Build.Framework.ProjectEvaluationFinishedEventArgs.GlobalProperties">
-            <summary>
-            Global properties used during this evaluation.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Framework.ProjectEvaluationFinishedEventArgs.Properties">
-            <summary>
-            Final set of properties produced by this evaluation.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Framework.ProjectEvaluationFinishedEventArgs.Items">
-            <summary>
-            Final set of items produced by this evaluation.
-            </summary>
-        </member>
         <member name="P:Microsoft.Build.Framework.ProjectEvaluationFinishedEventArgs.ProfilerResult">
             <summary>
             The result of profiling a project.
@@ -2645,6 +2523,14 @@
             <summary>
             Arguments for project finished events
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="M:Microsoft.Build.Framework.ProjectFinishedEventArgs.#ctor">
             <summary>
@@ -2734,6 +2620,14 @@
             <summary>
             Arguments for project started events
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="F:Microsoft.Build.Framework.ProjectStartedEventArgs.InvalidProjectId">
             <summary>
@@ -2817,7 +2711,7 @@
         </member>
         <member name="P:Microsoft.Build.Framework.ProjectStartedEventArgs.ProjectId">
             <summary>
-            Gets the identifier of the project.
+            Gets the idenifier of the project.
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.ProjectStartedEventArgs.ParentProjectBuildEventContext">
@@ -2882,86 +2776,6 @@
             </summary>
             <param name="reader">Binary reader which is attached to the stream the event will be deserialized from</param>
             <param name="version">The version of the runtime the message packet was created from</param>
-        </member>
-        <member name="T:Microsoft.Build.Framework.PropertyInitialValueSetEventArgs">
-            <summary>
-            The argument for a property initial value set event.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.PropertyInitialValueSetEventArgs.#ctor">
-            <summary>
-            Creates an instance of the <see cref="T:Microsoft.Build.Framework.PropertyInitialValueSetEventArgs"/> class.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.PropertyInitialValueSetEventArgs.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,Microsoft.Build.Framework.MessageImportance)">
-            <summary>
-            Creates an instance of the <see cref="T:Microsoft.Build.Framework.PropertyInitialValueSetEventArgs"/> class.
-            </summary>
-            <param name="propertyName">The name of the property.</param>
-            <param name="propertyValue">The value of the property.</param>
-            <param name="propertySource">The source of the property.</param>
-            <param name="message">The message of the property.</param>
-            <param name="helpKeyword">The help keyword.</param>
-            <param name="senderName">The sender name of the event.</param>
-            <param name="importance">The importance of the message.</param>
-        </member>
-        <member name="P:Microsoft.Build.Framework.PropertyInitialValueSetEventArgs.PropertyName">
-            <summary>
-            The name of the property.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Framework.PropertyInitialValueSetEventArgs.PropertyValue">
-            <summary>
-            The value of the property.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Framework.PropertyInitialValueSetEventArgs.PropertySource">
-            <summary>
-            The source of the property.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Build.Framework.PropertyReassignmentEventArgs">
-            <summary>
-            The argument for a property reassignment event.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.PropertyReassignmentEventArgs.#ctor">
-            <summary>
-            Creates an instance of the PropertyReassignmentEventArgs class.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.PropertyReassignmentEventArgs.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,Microsoft.Build.Framework.MessageImportance)">
-            <summary>
-            Creates an instance of the PropertyReassignmentEventArgs class.
-            </summary>
-            <param name="propertyName">The name of the property whose value was reassigned.</param>
-            <param name="previousValue">The previous value of the reassigned property.</param>
-            <param name="newValue">The new value of the reassigned property.</param>
-            <param name="location">The location of the reassignment.</param>
-            <param name="message">The message of the reassignment event.</param>
-            <param name="helpKeyword">The help keyword of the reassignment.</param>
-            <param name="senderName">The sender name of the reassignment event.</param>
-            <param name="importance">The importance of the message.</param>
-        </member>
-        <member name="P:Microsoft.Build.Framework.PropertyReassignmentEventArgs.PropertyName">
-            <summary>
-            The name of the property whose value was reassigned.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Framework.PropertyReassignmentEventArgs.PreviousValue">
-            <summary>
-            The previous value of the reassigned property.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Framework.PropertyReassignmentEventArgs.NewValue">
-            <summary>
-            The new value of the reassigned property.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Framework.PropertyReassignmentEventArgs.Location">
-            <summary>
-            The location of the reassignment.
-            </summary>
         </member>
         <member name="T:Microsoft.Build.Framework.RequiredAttribute">
             <summary>
@@ -3124,11 +2938,6 @@
             Gets a value indicating if the resolver is allowed to be interactive.
             </summary>
         </member>
-        <member name="P:Microsoft.Build.Framework.SdkResolverContext.IsRunningInVisualStudio">
-            <summary>
-            Gets a value indicating if the resolver is running in Visual Studio.
-            </summary>
-        </member>
         <member name="P:Microsoft.Build.Framework.SdkResolverContext.Logger">
             <summary>
                 Logger to log real-time messages back to MSBuild.
@@ -3188,24 +2997,6 @@
                 Null if <see cref="P:Microsoft.Build.Framework.SdkResult.Success"/> == false
             </summary>
         </member>
-        <member name="P:Microsoft.Build.Framework.SdkResult.AdditionalPaths">
-            <summary>
-            Additional resolved SDK paths beyond the one specified in <see cref="P:Microsoft.Build.Framework.SdkResult.Path"/>
-            </summary>
-            <remarks>
-            This allows an SDK resolver to return multiple SDK paths, which will all be imported.
-            </remarks>
-        </member>
-        <member name="P:Microsoft.Build.Framework.SdkResult.PropertiesToAdd">
-            <summary>
-            Properties that should be added to the evaluation.  This allows an SDK resolver to provide information to the build
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Framework.SdkResult.ItemsToAdd">
-            <summary>
-            Items that should be added to the evaluation.  This allows an SDK resolver to provide information to the build
-            </summary>
-        </member>
         <member name="P:Microsoft.Build.Framework.SdkResult.SdkReference">
             <summary>
                 The Sdk reference
@@ -3226,34 +3017,6 @@
             <param name="warnings">Optional warnings to display during resolution.</param>
             <returns></returns>
         </member>
-        <member name="M:Microsoft.Build.Framework.SdkResultFactory.IndicateSuccess(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.SdkResultItem},System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-                Create an <see cref="T:Microsoft.Build.Framework.SdkResolver" /> object indicating success resolving the SDK.
-            </summary>
-            <param name="path">Path to the SDK.</param>
-            <param name="version">Version of the SDK that was resolved.</param>
-            <param name="propertiesToAdd">Properties to set in the evaluation</param>
-            <param name="itemsToAdd">Items to add to the evaluation</param>
-            <param name="warnings">Optional warnings to display during resolution.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Microsoft.Build.Framework.SdkResultFactory.IndicateSuccess(System.Collections.Generic.IEnumerable{System.String},System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.SdkResultItem},System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-                Create an <see cref="T:Microsoft.Build.Framework.SdkResolver" /> object indicating success.
-            </summary>
-            <remarks>
-            This overload allows any number (zero, one, or many) of SDK paths to be returned.  This means a "successful" result
-            may not resolve to any SDKs.  The resolver can also supply properties or items to communicate information to the build.  This
-            can allow resolvers to report SDKs that could not be resolved without hard-failing the evaluation, which can allow other
-            components to take more appropriate action (for example installing optional workloads or downloading NuGet SDKs).
-            </remarks>
-            <param name="paths">SDK paths which should be imported</param>
-            <param name="version">SDK version which should be imported</param>
-            <param name="propertiesToAdd">Properties to set in the evaluation</param>
-            <param name="itemsToAdd">Items to add to the evaluation</param>
-            <param name="warnings">Optional warnings to display during resolution.</param>
-            <returns></returns>
-        </member>
         <member name="M:Microsoft.Build.Framework.SdkResultFactory.IndicateFailure(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})">
             <summary>
                 Create an <see cref="T:Microsoft.Build.Framework.SdkResolver" /> object indicating failure resolving the SDK.
@@ -3264,18 +3027,6 @@
             </param>
             <param name="warnings"></param>
             <returns></returns>
-        </member>
-        <member name="T:Microsoft.Build.Framework.SdkResultItem">
-            <summary>
-            The value of an item and any associated metadata to be added by an SDK resolver.  See <see cref="P:Microsoft.Build.Framework.SdkResult.ItemsToAdd"/>
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.SdkResultItem.#ctor(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
-            <summary>
-            Creates an <see cref="T:Microsoft.Build.Framework.SdkResultItem"/>
-            </summary>
-            <param name="itemSpec">The value (itemspec) for the item</param>
-            <param name="metadata">A dictionary of item metadata.  This should be created with <see cref="P:System.StringComparer.OrdinalIgnoreCase"/> for the comparer.</param>
         </member>
         <member name="T:Microsoft.Build.Framework.TargetBuiltReason">
             <summary>
@@ -3306,6 +3057,14 @@
             <summary>
             Arguments for target finished events
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="M:Microsoft.Build.Framework.TargetFinishedEventArgs.#ctor">
             <summary>
@@ -3376,7 +3135,7 @@
         </member>
         <member name="P:Microsoft.Build.Framework.TargetFinishedEventArgs.ProjectFile">
             <summary>
-            Project file associated with event.
+            Project file associated with event.   
             </summary>
         </member>
         <member name="P:Microsoft.Build.Framework.TargetFinishedEventArgs.TargetFile">
@@ -3428,6 +3187,14 @@
             <summary>
             Arguments for target started events
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>    
         </member>
         <member name="M:Microsoft.Build.Framework.TargetStartedEventArgs.#ctor">
             <summary>
@@ -3564,6 +3331,14 @@
             <summary>
             Arguments for task finished events
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="M:Microsoft.Build.Framework.TaskFinishedEventArgs.#ctor">
             <summary>
@@ -3628,50 +3403,6 @@
             MSBuild file where this task was defined.   
             </summary>
         </member>
-        <member name="T:Microsoft.Build.Framework.TaskItemData">
-            <summary>
-            Lightweight specialized implementation of <see cref="T:Microsoft.Build.Framework.ITaskItem"/> only used for deserializing items.
-            The goal is to minimize overhead when representing deserialized items.
-            Used by node packet translator and binary logger.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.TaskItemData.#ctor(Microsoft.Build.Framework.ITaskItem)">
-            <summary>
-            Clone the task item and all metadata to create a snapshot
-            </summary>
-            <param name="original">An <see cref="T:Microsoft.Build.Framework.ITaskItem"/> to clone</param>
-        </member>
-        <member name="T:Microsoft.Build.Framework.TaskParameterEventArgs">
-            <summary>
-            This class is used by tasks to log their parameters (input, output).
-            The intrinsic ItemGroupIntrinsicTask to add or remove items also
-            uses this class.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.TaskParameterEventArgs.#ctor(Microsoft.Build.Framework.TaskParameterMessageKind,System.String,System.Collections.IList,System.Boolean,System.DateTime)">
-            <summary>
-            Creates an instance of this class for the given task parameter.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.Framework.TaskParameterEventArgs.MessageGetter">
-            <summary>
-            The <see cref="T:Microsoft.Build.Framework.TaskParameterEventArgs"/> type is declared in Microsoft.Build.Framework.dll
-            which is a declarations assembly. The logic to realize the Message is in Microsoft.Build.dll
-            which is an implementations assembly. This seems like the easiest way to inject the
-            implementation for realizing the Message.
-            </summary>
-            <remarks>
-            Note that the current implementation never runs and is provided merely
-            as a safeguard in case MessageGetter isn't set for some reason.
-            </remarks>
-        </member>
-        <member name="F:Microsoft.Build.Framework.TaskParameterEventArgs.DictionaryFactory">
-            <summary>
-            Provides a way for Microsoft.Build.dll to provide a more efficient dictionary factory
-            (using ArrayDictionary`2). Since that is an implementation detail, it is not included
-            in Microsoft.Build.Framework.dll so we need this extensibility point here.
-            </summary>
-        </member>
         <member name="T:Microsoft.Build.Framework.TaskPropertyInfo">
             <summary>
             Class which represents the parameter information from the using task as a strongly typed class.
@@ -3683,7 +3414,7 @@
             </summary>
             <param name="name">Name of the parameter</param>
             <param name="typeOfParameter">The actual type of the parameter</param>
-            <param name="output">True if the parameter is both an output and input parameter. False if the parameter is only an input parameter</param>
+            <param name="output">True if the parameter is both an output and and input parameter. False if the parameter is only an input parameter</param>
             <param name="required">True if the parameter must be supplied to each invocation of the task.</param>
         </member>
         <member name="P:Microsoft.Build.Framework.TaskPropertyInfo.PropertyType">
@@ -3706,25 +3437,18 @@
             This task parameter is required (analogous to the [Required] attribute)
             </summary>
         </member>
-        <member name="P:Microsoft.Build.Framework.TaskPropertyInfo.Log">
-            <summary>
-            This task parameter should be logged when LogTaskInputs is set. Defaults to true.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Framework.TaskPropertyInfo.LogItemMetadata">
-            <summary>
-            When this task parameter is an item list, determines whether to log item metadata. Defaults to true.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.Framework.TaskPropertyInfo.Initialized">
-            <summary>
-            Whether the Log and LogItemMetadata properties have been assigned already.
-            </summary>
-        </member>
         <member name="T:Microsoft.Build.Framework.TaskStartedEventArgs">
             <summary>
             Arguments for task started events
             </summary>
+            <remarks>
+            WARNING: marking a type [Serializable] without implementing
+            ISerializable imposes a serialization contract -- it is a
+            promise to never change the type's fields i.e. the type is
+            immutable; adding new fields in the next version of the type
+            without following certain special FX guidelines, can break both
+            forward and backward compatibility
+            </remarks>
         </member>
         <member name="M:Microsoft.Build.Framework.TaskStartedEventArgs.#ctor">
             <summary>
@@ -3795,31 +3519,6 @@
         <member name="P:Microsoft.Build.Framework.TelemetryEventArgs.Properties">
             <summary>
             Gets or sets a list of properties associated with the event.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Build.Framework.UninitializedPropertyReadEventArgs">
-            <summary>
-            The arguments for an uninitialized property read event.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.UninitializedPropertyReadEventArgs.#ctor">
-            <summary>
-            UninitializedPropertyReadEventArgs
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Framework.UninitializedPropertyReadEventArgs.#ctor(System.String,System.String,System.String,System.String,Microsoft.Build.Framework.MessageImportance)">
-            <summary>
-            Creates an instance of the UninitializedPropertyReadEventArgs class
-            </summary>
-            <param name="propertyName">The name of the uninitialized property that was read.</param>
-            <param name="message">The message of the uninitialized property that was read.</param>
-            <param name="helpKeyword">The helpKeyword of the uninitialized property that was read.</param>
-            <param name="senderName">The sender name of the event.</param>
-            <param name="importance">The message importance of the event.</param>
-        </member>
-        <member name="P:Microsoft.Build.Framework.UninitializedPropertyReadEventArgs.PropertyName">
-            <summary>
-            The name of the uninitialized property that was read.
             </summary>
         </member>
         <member name="T:Microsoft.Build.Framework.XamlTypes.Argument">
@@ -4356,8 +4055,8 @@
             <summary>
             Represents the location and grouping for a <see cref="T:Microsoft.Build.Framework.XamlTypes.BaseProperty"/>.
             </summary>
-            <remarks>
-            Those who manually
+            <remarks> 
+            Those who manually 
             instantiate this class should remember to call <see cref="M:Microsoft.Build.Framework.XamlTypes.DataSource.BeginInit"/> before setting the first
             property and <see cref="M:Microsoft.Build.Framework.XamlTypes.DataSource.EndInit"/> after setting the last property of the object.
             </remarks>
@@ -4369,12 +4068,12 @@
         </member>
         <member name="P:Microsoft.Build.Framework.XamlTypes.DataSource.Persistence">
             <summary>
-            The storage location for this data source.
+            The storage location for this data source. 
             </summary>
             <remarks>
-            This field is mandatory unless <see cref="P:Microsoft.Build.Framework.XamlTypes.DataSource.PersistenceStyle"/> is set. In that case, the parent
-            <see cref="T:Microsoft.Build.Framework.XamlTypes.DataSource"/> will be used with the specified style. Example values are <c>ProjectFile</c> and
-            <c>UserFile</c>. <c>ProjectFile</c> causes the property value to be written to and read from the project
+            This field is mandatory unless <see cref="P:Microsoft.Build.Framework.XamlTypes.DataSource.PersistenceStyle"/> is set. In that case, the parent 
+            <see cref="T:Microsoft.Build.Framework.XamlTypes.DataSource"/> will be used with the specified style. Example values are <c>ProjectFile</c> and 
+            <c>UserFile</c>. <c>ProjectFile</c> causes the property value to be written to and read from the project 
             manifest file or the property sheet (depending on which node in the solution explorer/property manager window
             is used to spawn the property pages UI). <c>UserFile</c> causes the property value to be written to and read
             from the .user file.
@@ -4385,7 +4084,7 @@
             The storage style for this data source.
             </summary>
             <remarks>
-            For example, with <see cref="P:Microsoft.Build.Framework.XamlTypes.DataSource.Persistence"/> of <c>ProjectFile</c>, this field can be <c>Element</c> (default) to
+            For example, with <see cref="P:Microsoft.Build.Framework.XamlTypes.DataSource.Persistence"/> of <c>ProjectFile</c>, this field can be <c>Element</c> (default) to 
             save as a child XML Element, or <c>Attribute</c> to save properties as an XML attribute.
             </remarks>
         </member>
@@ -4439,7 +4138,7 @@
             Among other things this governs how the data is treated during build.
             </summary>
             <example>
-            A value of <c>Item</c> for this property indicates that this property is actually
+            A value of <c>Item</c> for this property indicates that this property is actually 
             an item array - the list of all items with the item type specified by <see cref="P:Microsoft.Build.Framework.XamlTypes.DataSource.ItemType"/>.
             </example>
         </member>
@@ -5247,62 +4946,6 @@
             See ISupportInitialize.
             </summary>
         </member>
-        <member name="T:Microsoft.Build.Utilities.ChangeWaves">
-            <summary>
-            Coupled together with the MSBUILDDISABLEFEATURESFROMVERSION environment variable,
-            this class acts as a way to make risky changes while giving customers an opt-out.
-            </summary>
-            See docs here: https://github.com/dotnet/msbuild/blob/master/documentation/wiki/ChangeWaves.md
-            For dev docs: https://github.com/dotnet/msbuild/blob/master/documentation/wiki/ChangeWaves-Dev.md
-        </member>
-        <member name="F:Microsoft.Build.Utilities.ChangeWaves.EnableAllFeatures">
-            <summary>
-            Special value indicating that all features behind all Change Waves should be enabled.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Utilities.ChangeWaves.LowestWave">
-            <summary>
-            The lowest wave in the current rotation of Change Waves.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Utilities.ChangeWaves.HighestWave">
-            <summary>
-            The highest wave in the current rotation of Change Waves.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Utilities.ChangeWaves.ShouldApplyChangeWave">
-            <summary>
-            Checks the conditions for whether or not we want ApplyChangeWave to be called again.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Utilities.ChangeWaves.DisabledWave">
-            <summary>
-            The current disabled wave.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Utilities.ChangeWaves.ConversionState">
-            <summary>
-            The status of how the disabled wave was set.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Utilities.ChangeWaves.ApplyChangeWave">
-            <summary>
-            Read from environment variable `MSBuildDisableFeaturesFromVersion`, correct it if required, cache it and its ConversionState.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Utilities.ChangeWaves.AreFeaturesEnabled(System.Version)">
-            <summary>
-            Determines whether features behind the given wave are enabled.
-            </summary>
-            <param name="wave">The version to compare.</param>
-            <returns>A bool indicating whether the change wave is enabled.</returns>
-        </member>
-        <member name="M:Microsoft.Build.Utilities.ChangeWaves.ResetStateForTests">
-            <summary>
-            Resets the state and value of the currently disabled version.
-            Used for testing only.
-            </summary>
-        </member>
         <member name="T:Microsoft.Build.Shared.MSBuildConstants">
             <summary>
             Constants that we want to be shareable across all our assemblies.
@@ -5358,210 +5001,25 @@
             The most current ToolsVersion known to this version of MSBuild.
             </summary>
         </member>
+        <member name="F:Microsoft.Build.Shared.MSBuildConstants.CurrentToolsVersionAsVersion">
+            <summary>
+            The most current ToolsVersion known to this version of MSBuild as a Version object.
+            </summary>
+        </member>
         <member name="F:Microsoft.Build.Shared.MSBuildConstants.CurrentAssemblyVersion">
             <summary>
             The most current VSGeneralAssemblyVersion known to this version of MSBuild.
             </summary>
         </member>
-        <member name="F:Microsoft.Build.Shared.MSBuildConstants.CurrentProductVersion">
+        <member name="P:Microsoft.Build.Shared.MSBuildConstants.CurrentProductVersion">
             <summary>
             Current version of this MSBuild Engine assembly in the form, e.g, "12.0"
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.Shared.MSBuildConstants.DefaultTargetsMarker">
-            <summary>
-            Symbol used in ProjectReferenceTarget items to represent default targets
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.Shared.MSBuildConstants.ProjectReferenceTargetsOrDefaultTargetsMarker">
-            <summary>
-            Symbol used in ProjectReferenceTarget items to represent targets specified on the ProjectReference item
-            with fallback to default targets if the ProjectReference item has no targets specified.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.Shared.PropertyNames.IsGraphBuild">
-            <summary>
-            Specifies whether the current evaluation / build is happening during a graph build
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.Shared.ItemTypeNames.ProjectReference">
-            <summary>
-            References to other msbuild projects
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.Shared.ItemTypeNames.ProjectReferenceTargets">
-            <summary>
-            Statically specifies what targets a project calls on its references
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.Shared.ItemTypeNames.ProjectCachePlugin">
-            <summary>
-            Declares a project cache plugin and its configuration.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.Shared.ItemTypeNames.EmbedInBinlog">
-            <summary>
-            Embed specified files in the binary log
             </summary>
         </member>
         <member name="T:Microsoft.Build.Shared.ItemMetadataNames">
             <summary>
             Constants naming well-known item metadata.
             </summary>
-        </member>
-        <member name="F:Microsoft.Build.Shared.ItemMetadataNames.targetPath">
-            <summary>
-            The output path for a given item.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Build.Eventing.MSBuildEventSource">
-            <summary>
-            This captures information of how various key methods of building with MSBuild ran.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.Eventing.MSBuildEventSource.Log">
-            <summary>
-            define the singleton instance of the event source
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.ApplyLazyItemOperationsStart(System.String)">
-            <summary>
-            Call this method to notify listeners of information relevant to collecting a set of items, mutating them in a specified way, and saving the results.
-            </summary>
-            <param name="itemType">The type of the item being mutated.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.ApplyLazyItemOperationsStop(System.String)">
-            <param name="itemType">The type of the item being mutated.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.BuildStart">
-            <summary>
-            Call this method to notify listeners of information relevant to the setup for a BuildManager to receive build requests.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.BuildProjectStart(System.String)">
-            <summary>
-            Call this method to notify listeners of information of how a project file built.
-            <param name="projectPath">Filename of the project being built.</param>
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.BuildProjectStop(System.String,System.String)">
-            <param name="projectPath">Filename of the project being built.</param>
-            <param name="targets">Names of the targets that built.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluateConditionStart(System.String)">
-            <param name="condition">The condition being evaluated.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluateConditionStop(System.String,System.Boolean)">
-            <param name="condition">The condition being evaluated.</param>
-            <param name="result">The result of evaluating the condition.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluateStart(System.String)">
-            <summary>
-            Call this method to notify listeners of how the project data was evaluated.
-            </summary>
-            <param name="projectFile">Relevant information about where in the run of the progam it is.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluatePass0Start(System.String)">
-            <param name="projectFile">Relevant information about where in the run of the progam it is.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluatePass0Stop(System.String)">
-            <param name="projectFile">Relevant information about where in the run of the progam it is.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluatePass1Start(System.String)">
-            <param name="projectFile">Relevant information about where in the run of the progam it is.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluatePass1Stop(System.String,System.Int32,System.Int32)">
-            <param name="projectFile">Relevant information about where in the run of the progam it is.</param>
-            <param name="numberOfProperties">Number of Properties getting evaluated.</param>
-            <param name="numberOfImports">Number of Imports getting evaluated.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluatePass2Start(System.String)">
-            <param name="projectFile">Relevant information about where in the run of the progam it is.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluatePass2Stop(System.String,System.Int32)">
-            <param name="projectFile">Relevant information about where in the run of the progam it is.</param>
-            <param name="numberOfItemDefinitionGroupElements">Number of ItemDefinitionGroupElements getting evaluated.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluatePass3Start(System.String)">
-            <param name="projectFile">Relevant information about where in the run of the progam it is.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluatePass3Stop(System.String,System.Int32)">
-            <param name="projectFile">Relevant information about where in the run of the progam it is.</param>
-            <param name="numberOfItemGroupElements">Number of project items evaluated.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluatePass4Start(System.String)">
-            <param name="projectFile">Relevant information about where in the run of the progam it is.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluatePass4Stop(System.String,System.Int32)">
-            <param name="projectFile">Relevant information about where in the run of the progam it is.</param>
-            <param name="numberOfUsingTaskElements">Number of using tasks elements evaluated.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluatePass5Start(System.String)">
-            <param name="projectFile">Relevant information about where in the run of the progam it is.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluatePass5Stop(System.String,System.Int32)">
-            <param name="projectFile">Relevant information about where in the run of the progam it is.</param>
-            <param name="targetElementsCount">Number of targets read.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.EvaluateStop(System.String)">
-            <param name="projectFile">Relevant information about where in the run of the progam it is.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.ExpandGlobStart(System.String,System.String,System.String)">
-            <summary>
-            Call this method to notify listeners of information relevant to identifying a list of files that correspond to an item with a wildcard.
-            </summary>
-            <param name="rootDirectory">Source of files to glob.</param>
-            <param name="glob">Pattern, possibly with wildcard(s) to be expanded.</param>
-            <param name="excludedPatterns">Patterns not to expand.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.ExpandGlobStop(System.String,System.String,System.String)">
-            <param name="rootDirectory">Source of files to glob.</param>
-            <param name="glob">Pattern, possibly with wildcard(s) to be expanded.</param>
-            <param name="excludedPatterns">Patterns not to expand.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.LoadDocumentStart(System.String)">
-            <summary>
-            Call this method to notify listeners of timing related to loading an XmlDocumentWithLocation from a path.
-            <param name="fullPath">Path to the document to load.</param>
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.LoadDocumentStop(System.String)">
-            <param name="fullPath">Path to the document to load.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.ParseStart(System.String)">
-            <summary>
-            Call this method to notify listeners of profiling for the function that parses an XML document into a ProjectRootElement.
-            </summary>
-            <param name="projectFileName">Relevant information about where in the run of the progam it is.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.ParseStop(System.String)">
-            <param name="projectFileName">Relevant information about where in the run of the progam it is.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.RarRemoveReferencesMarkedForExclusionStart">
-            <summary>
-            Call this method to notify listeners of profiling for the method that removes blacklisted references from the reference table. It puts primary and dependency references in invalid file lists.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.SaveStart(System.String)">
-            <param name="fileLocation">Project file's location.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.SaveStop(System.String)">
-            <param name="fileLocation">Project file's location.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.TargetStart(System.String)">
-            <param name="targetName">The name of the target being executed.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.TargetStop(System.String)">
-            <param name="targetName">The name of the target being executed.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.MSBuildExeStart(System.String)">
-            <summary>
-            Call this method to notify listeners of the start of a build as called from the command line.
-            </summary>
-            <param name="commandLine">The command line used to run MSBuild.</param>
-        </member>
-        <member name="M:Microsoft.Build.Eventing.MSBuildEventSource.MSBuildExeStop(System.String)">
-            <param name="commandLine">The command line used to run MSBuild.</param>
         </member>
     </members>
 </doc>

@@ -30,7 +30,7 @@ public class DeepSpeechTest : MonoBehaviour
   public AudioClip clip;
 
   [Button]
-  void Start()
+  void Test()
   {
     string modelPath = FileUtil.projectPath + pbmmModel.filePath;
     DeepSpeech sttClient = new DeepSpeech(modelPath);

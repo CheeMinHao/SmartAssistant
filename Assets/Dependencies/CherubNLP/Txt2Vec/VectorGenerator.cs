@@ -39,7 +39,7 @@ namespace Txt2Vec
         {
             // Inplementing TF-IDF
             // TFIDFGenerator tfidfGenerator = new TFIDFGenerator();
-            List<List<double>> weights = null;// tfidfGenerator.TFIDFWeightVectorsForSentences(sentences.ToArray());
+            // List<List<double>> weights = null;// tfidfGenerator.TFIDFWeightVectorsForSentences(sentences.ToArray());
 
             List<List<Vec>> matixList = new List<List<Vec>>();
             List<Vec> sentenceVectorList = new List<Vec>();

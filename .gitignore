@@ -99,3 +99,7 @@ crashlytics-build.properties
 AudioClips/
 *.mp3
 *.audio
+
+# large libraries
+tensorflow.dll
+tensorflow.dll.meta
